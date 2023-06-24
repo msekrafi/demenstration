@@ -1,0 +1,5 @@
+{"properties": [{
+  "name": "demenstration.front.url",
+  "type": "java.lang.String",
+  "description": "URL de frontEnd autorisée a exploiter les api rest (sans probleme de corsOrigine) "
+}]}
