@@ -1,5 +1,6 @@
 package com.fr.demenstration.domain.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -18,7 +19,11 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Data
 @Builder
-public class Personne {  
+public class Personne implements Serializable {  
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 2545118775955569302L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;

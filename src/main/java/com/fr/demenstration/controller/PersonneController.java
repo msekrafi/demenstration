@@ -5,15 +5,17 @@ import java.util.List;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fr.demenstration.domain.dto.PersonneRequest;
 import com.fr.demenstration.domain.entity.Personne;
+import com.fr.demenstration.exception.PreconditionFailedException;
 import com.fr.demenstration.service.PersonneService;
 import com.fr.demenstration.utils.DateConverter;
 
-import io.swagger.v3.oas.annotations.parameters.RequestBody;
+
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -24,8 +26,12 @@ public class PersonneController {
 
 	@PostMapping("/personnes")
 	public Personne enregistrementPersonne(@RequestBody PersonneRequest personneRequest) {
-		System.out.println("---"+personneRequest);
-		Date dateNaissance=DateConverter.getDateFromString(personneRequest.getDatenaissance());
+		Date dateNaissance = DateConverter.getDateFromString(personneRequest.getDatenaissance());
+		int age = DateConverter.calculerAge(dateNaissance);
+		if(age>150) {
+			throw new PreconditionFailedException("age plus que 150 ans ");
+		}
+
 		Personne person=Personne.builder()
 				.dateNaissance(dateNaissance)
 				.nom(personneRequest.getNom())
