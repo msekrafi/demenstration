@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "5e28aabf-0882-4045-bdcc-5b28375bb814",
+		"name": "Personne",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "save personne",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nom\":\"test\",\r\n    \"prenom\":\"test prenom\",\r\n    \"datenaissance\":\"21/02/2000\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/personnes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"personnes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list personne",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/v1/personnes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"personnes"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
